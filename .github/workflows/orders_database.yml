@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Make envfile
-    users: ./
+    users: SpicyPizza/create-envfile@v1.3
     with:
       envkey_google_file_ID: ${{ secrets.google_file_ID}}
       envkey_sheet_file: ${{ secrets.sheet_file}}
@@ -23,3 +23,4 @@ jobs:
       envkey_POSTGRES_PORT: ${{ secrets.POSTGRES_PORT}}
       envkey_POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
       file_name: .env
+      directory: ./
