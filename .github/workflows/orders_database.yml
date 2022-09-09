@@ -1,6 +1,6 @@
 name: Create envfile
 
-on: [ pull ]
+on: [ push ]
 
 jobs:
   create-envfile:
