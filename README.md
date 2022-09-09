@@ -24,7 +24,7 @@ python main.py
 ____
 ### Для запуска проекта в Docker
 > *должен быть создан файл с конфигурационнами парамертами .env*
--- Скачайте образ из DockerHub
+- Скачайте образ из DockerHub
 ```bash
 docker pull anokhovskaya/anokhovskaya_kanalserv
 ``` 
