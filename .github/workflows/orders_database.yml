@@ -23,4 +23,3 @@ jobs:
         envkey_POSTGRES_PORT: ${{ secrets.POSTGRES_PORT}}
         envkey_POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
         file_name: .env
-        directory: ./
