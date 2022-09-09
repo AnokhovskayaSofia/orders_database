@@ -1,12 +1,21 @@
-google_file_ID = '1QN2GwzAKJmcx2Q3WVuLb6qlda6KzrUIoG44BRHIDeeA'
-sheet_file = 'creds.json'
-table_name = "orders"
+import os
+from dotenv import load_dotenv
 
-telegram_token = '5714648865:AAGHbwg76B64jVWdvKJ5hlNGegdRwv0yQ2c'
-channel_name = "@kanalservanokhovskaya"
 
-POSTGRES_USER = "postgres"
-POSTGRES_PASSWORD = "postgres"
-POSTGRES_HOST = "127.0.0.1"
-POSTGRES_PORT = "5432"
-POSTGRES_DB = "postgres"
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+
+
+google_file_ID = os.environ.get('google_file_ID')
+sheet_file = os.environ.get('sheet_file')
+table_name = os.environ.get('table_name')
+
+telegram_token = os.environ.get('telegram_token')
+channel_name = os.environ.get('channel_name')
+
+POSTGRES_USER = os.environ.get('POSTGRES_USER')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+POSTGRES_HOST = os.environ.get('POSTGRES_HOST')
+POSTGRES_PORT = os.environ.get('POSTGRES_PORT')
+POSTGRES_DB = os.environ.get('POSTGRES_DB')

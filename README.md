@@ -4,6 +4,8 @@
 Аноховская Софья
 ____
 ### Для запуска в режиме разработки
+>*должен быть установлен и запyщен PostgreSQL*
+>*должен быть создан файл с конфигурационнами парамертами .env*
 - Создайте и активируйте виртуальное окружение
 ```bash
 python -m venv venv
@@ -18,3 +20,12 @@ pip install -r requirements.txt
 python main.py
 ```
 ____
+### Для запуска проекта в Docker
+-- Скачайте образ из DockerHub
+```bash
+docker pull anokhovskaya/anokhovskaya_kanalserv
+``` 
+- Нужно собрать контейнер и запустить его
+```bash
+docker-compose up -d --build
+```

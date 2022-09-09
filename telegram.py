@@ -22,33 +22,36 @@ class Bot():
         num=0
         result = []
         count_m = 0
-        if order_ids:
-            r = '-------------------------------------------------\n'
-            r += '-------------------------------------------------\n'
-            r = 'ПРОСРОЧЕННЫЕ ЗАКАЗЫ С ' + str(dt.datetime.now().date()) + '\n'
-            r += '-------------------------------------------------\n'
-            r += '-------------------------------------------------\n'
-            result.append(r)
-            count_m +=1
-            r=''
-            for row in table:
-                if num <= len(order_ids)-1 and int(order_ids[num]) == int(row[1]):
-                    for ind in range(1, len(row)):
-                        r += description_dict[ind] + str(row[ind]) + ' | '
-                    r += '\n'
-                    r += '-------------------------------------------------\n'
-                    # деление сообщений по 10 записей
-                    if (num+1) % 10 == 0:
-                        result.append(r)
-                        count_m += 1
-                        r=''
-                    num+=1
-                    
-                    
-            if r:
+        try:
+            if order_ids:
+                r = '-------------------------------------------------\n'
+                r += '-------------------------------------------------\n'
+                r = 'ПРОСРОЧЕННЫЕ ЗАКАЗЫ С ' + str(dt.datetime.now().date()) + '\n'
+                r += '-------------------------------------------------\n'
+                r += '-------------------------------------------------\n'
                 result.append(r)
-                    
-        return result
+                count_m +=1
+                r=''
+                for row in table:
+                    if num <= len(order_ids)-1 and int(order_ids[num]) == int(row[1]):
+                        for ind in range(1, len(row)):
+                            r += description_dict[ind] + str(row[ind]) + ' | '
+                        r += '\n'
+                        r += '-------------------------------------------------\n'
+                        # деление сообщений по 10 записей
+                        if (num+1) % 10 == 0:
+                            result.append(r)
+                            count_m += 1
+                            r=''
+                        num+=1
+                        
+                        
+                if r:
+                    result.append(r)
+                        
+            return result
+        except Exception as ex:
+            print('[INFO Telegram] Error while prepairing message', ex)
 
 
     def send_message_overdue_orders(self, order_ids: list, orders: list):
@@ -57,6 +60,9 @@ class Bot():
         Input : данные о всех заказах 
         """
         if order_ids:
-            text = self.prepare_text(order_ids, orders)
-            for mess in text:
-                self.bot.send_message(channel_name, mess)
+            try:
+                text = self.prepare_text(order_ids, orders)
+                for mess in text:
+                    self.bot.send_message(channel_name, mess)
+            except Exception as ex:
+                print('[INFO Telegram] Error while sending message', ex)

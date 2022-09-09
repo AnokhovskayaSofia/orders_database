@@ -6,3 +6,4 @@ apiclient
 apscheduler
 postgres
 pytelegrambotapi
+python-dotenv
