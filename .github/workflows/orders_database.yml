@@ -1,0 +1,25 @@
+name: Create envfile
+
+on: [ pull ]
+
+jobs:
+  create-envfile:
+    runs-on:ubuntu-latest
+
+    steps:
+    - name: Make envfile
+    users: ./
+    with:
+      envkey_google_file_ID: ${{ secrets.google_file_ID}}
+      envkey_sheet_file: ${{ secrets.sheet_file}}
+      envkey_table_name: ${{ secrets.table_name}}
+
+      envkey_telegram_token: ${{ secrets.telegram_token}}
+      envkey_channel_name: ${{ secrets.channel_name}}
+
+      envkey_POSTGRES_USER: ${{ secrets.POSTGRES_USER}}
+      envkey_POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD}}
+      envkey_POSTGRES_HOST: ${{ secrets.POSTGRES_HOST}}
+      envkey_POSTGRES_PORT: ${{ secrets.POSTGRES_PORT}}
+      envkey_POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
+      file_name: .env
