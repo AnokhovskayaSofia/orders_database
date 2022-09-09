@@ -11,7 +11,7 @@ ____
 - Создайте и активируйте виртуальное окружение
 ```bash
 python -m venv venv
-source venv/Script/activate
+source venv/Scripts/activate
 ```
  - Загрузите все пакеты и зависимости из файла requirements.txt
 ```bash
